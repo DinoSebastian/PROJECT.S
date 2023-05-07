@@ -25,6 +25,8 @@ Requirements:
 ➢The Web application should also be cached globally, so users worldwide can access it with low latency
 
 
+
+
 Solution:
 
 Based on the requirements you provided, here is a proposed solution design:
