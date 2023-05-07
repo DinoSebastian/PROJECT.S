@@ -1,0 +1,86 @@
+Project Statement
+
+You are hired as Cloud Architect in Nation-wheels –a logistics company. Your job is to migrate the existing on-prem infrastructure to the Cloud. The company wants to decrease the overhead in maintaining the systems. The cloud infrastructure should supportscalability, Data analytics, and stream analytics. You also need to provide a plan in which the below on-prem architecture can be migrated to GCP with low-cost optimizations.
+
+Nation-Wheels logistics company current infrastructure is as given below:
+
+●It has a single data center, and all the applications are served out from this data center.
+
+●Relational DB:
+     oPostgres. One server for user data, inventory, static data
+     ▪MySQL 5.7
+     ▪Eight core CPUs
+     ▪128 GB of RAM
+     ▪2x 5 TB HDD (RAID 1)
+     
+Compute: 
+        ●20 web application servers providing micro-services-based APIs and static content build on tomcat -Java, Nginx, Four core CPUs, 32 GB of RAM
+
+Bigdata:
+        ●20 Apache Hadoop/Spark servers:
+        ▪Data analysis
+        ▪Real-time trending calculations
+        ▪Eight core CPUs
+        ▪128 GB of RAM
+        ▪4x 5 TB HDD (RAID 1)
+
+       ●Three IBM MQ servers for messaging, notifications, and events:
+        ▪16 core CPUs▪64 of RAM
+
+       ●Miscellaneous servers:
+        ▪Jenkins, monitoring, bastion hosts, security scanners
+        ▪Eight core CPU
+        ▪32GB of RAM
+
+Storage appliances:
+
+●iSCSI for VM hosts
+●Fiber channel SAN -MySQL databases
+▪1 PB total storage; 400 TB available
+●NAS -image storage, logs, backups
+▪100 TB total storage; 35 TB available
+
+Steps:
+
+1.Create a Cloud SQL with Postgres instance
+2.Create Compute Engine VM with startup script to install tomcat orcreate an image with the configuration and start the VMs using that image
+3.Deploy a Dataproc cluster to migrate Apache Hadoop servers
+4.Use Cloud Pub/Sub for IBM MQ servers
+5.Create Compute engine VMs and install Jenkins, and setup bastion hosts.
+6.Use Cloud Monitoring for monitoring
+
+SOLUTION
+
+1.	Based on the information provided, here is a high-level plan for migrating Nation-Wheels' infrastructure to GCP with low-cost optimizations:
+
+2.	Assess the workload and determine the appropriate GCP services to use for each application and database.
+
+3.	Create a Cloud SQL with Postgres instance to migrate the existing user data, inventory, and static data.
+
+4.	Create Compute Engine VMs to host web application servers and microservices-based APIs. The VMs should be built using a startup script to install Tomcat or create an image with the configuration and start the VMs using that image. The VMs should be configured to auto-scale based on traffic using managed instance groups (MIGs).
+
+5.	Deploy a Dataproc cluster to migrate the Apache Hadoop/Spark servers for data analysis and real-time trending calculations.
+
+6.	Use Cloud Pub/Sub for IBM MQ servers for messaging, notifications, and events.
+
+7.	Create Compute Engine VMs to host Jenkins and setup bastion hosts. Use preemptible VMs for Jenkins to save costs.
+
+8.	Use Cloud Monitoring for monitoring the infrastructure and configure alerts for critical components.
+
+9.	Move VMs to custom machine types and apply committed use discounts to save costs.
+
+10.	Migrate the MySQL databases to Cloud SQL to save costs on storage appliances.
+
+11.	Use GCP's CDN (Content Delivery Network) to serve static content and reduce latency.
+
+12.	Use GCP's Load Balancer for distributing traffic among VMs and achieve high availability and reliability.
+
+13.	Use Cloud Storage for image storage, logs, and backups to save costs on NAS.
+
+14.	Use GCP's IAM (Identity and Access Management) to manage access and permissions for GCP resources.
+
+This migration plan leverages the cost-efficient GCP services and reduces overhead in maintaining the systems. It also provides scalability, data analytics, and stream analytics capabilities, as requested by the company.
+
+
+
+
