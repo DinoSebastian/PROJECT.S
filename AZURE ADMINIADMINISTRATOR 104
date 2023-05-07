@@ -1,0 +1,69 @@
+Background
+Bluetim Company Ltd. is an electronic manufacturing company that has operations in various countries. The organization has various products like automatic sensors, semiconductors, switches, magnetic sensors, optical sensors and temperature sensors etc. All these products are shipped to various dealers in the US, India, United Kingdom and other countries. This organization has a web-based portal as the frontend part of application and backend database is hosted in SOL for the dealers. This portal is accessed by dealers in many countries and the current infrastructure supports User Administration, Networking. Storage, Load Balancers, High Availability, Traffic Management, Monitoring, Security & e-mail services Dealers are facing performance issues while accessing the site and performing various requests like creating purchase order, submitting purchase requisitions, generating invoices, contacting suppliers and supplies are getting im pacted which finally impacts the business. In today's scenario organizations are dependent on a robust IT based electronic system and so this dealer-based system is very critical. Due to the worldwide operations and increase in number of users, this company is facing some major challenges like the website goes down due to excessive user traffic indicating High CPU usage in on-premises servers/machines where the current application is deployed and security of the data that dealers access in on-nremises. Also, users are facing performance issues like report generation, data read/write, & lock contention with current database. Due to the overall demand and scale of its operations, Bluetim company has decided to migrate to Cloud from current on-premises infrastructure. The preferred cloud partner platform selected is Microsoft Azure. The organization is confident that with this decision of moving to cloud it will gain increased efficiency, ease of access, scalability, durability, backup/recovery services, reliability, simpler administration and management, and reduce overall costs. This will also benefit various enterprise applications or services used by many dealers across the globe. This application has highest number of user requests and therefore the services must be resilient to failures at Azure's Datacenter's. User request across these applications must be secured and available on demand. The organization also requires its data to be replicated across its secondary data center for disaster recovery and failover during planned or unplanned maintenance
+
+Technical Requirements
+  
+1.	User Management / Azure Active Directory (AAD) Setup
+                      The organization has decided to migrate the entire on-premises infrastructure and so the user emails, groups, emails, login from on-premises windows server needs to be migrated to Azure Active Directory (AAD). This will be the first step in the migration.     
+
+ 2. Azure Virtual Network (VNet) Setup
+               Organization virtual network needs to be set up and configured in Azure with required subnets, IP address, Network Security Group(NSG)etc. That is similar to the on-premises infrastructure.
+
+
+3.Dealer Website
+               Dealer application will be deployed in cloud and will be hosted in two different datacentres -Central US and South India. The application and database will be deployed in Azure VMsin two different datacenters so that if any failure or unplanned event occurs then the request will be served from another location.(Please note Dealer website can be created using a simple html tag and deployed in two different Azure datacentre VMs)
+
+4.Virtual Machine
+                Two Azure Windows Server 2016 Virtual Machines need to be created and the dealer site created above needs to be deployed in those virtual machines hosted in two different datacentres. These machines must be deployed on Azure datacentre in two different hardware racks i.e. required availability sets need to be configured with fault domains and update domains.
+
+5.Cloud Storage
+             Organization sometimes shares the documents with the dealers. So, any electrical materials or handbook documents that the dealer requires should be uploaded in Azure and managed in such a way that the data will be replicated in multiple geographies during any failover/downtime. Dealers can easily use the blob URL and download the material handbook documents after following the authentication steps.
+
+6.Load balancing
+            Organization wants that the entire solution should comply to high availability and increase the availability of the application and required database. The incoming load from various users of the website must be routed across all VMs accordingly, to avoid traffic congestion issues, by using Azure Load Balancers. VMs where the applications are hosted need to be monitored with some monitoring solution and in case of any issues, the faulty VM needs to be repaired and deployed.
+
+7.User Traffic Management
+            As this dealer app is an internet-facing application, traffic management is a key part in the solution. Dealer request will first be received by the Azure Traffic Manager and based on the user geography; users will be routed to the site hosted in nearest Azure datacentre. With this approach, load will be balanced across two VMs.
+
+8.Security and Connections
+            For application/data to connect to an on-premises/non-cloud environment, hybrid connections need to be setup. The VMs that are hosted in two Azure regions must be connected to each other using VNet Peering to facilitate sharing of resources.
+
+9.Monitoring
+          Organization wants the dealer application and its infrastructure/resources to be regularly monitored in cloud for performance and availability of the application. Monitoring solutions like Azure Monitor or Log Analytics should be used to collect granular performance and utilization of data, activity and diagnostics logs, and notifications from hosted infrastructure in a regular manner.
+
+
+
+
+SOLUTION 
+
+
+1.	Azure Active Directory (AAD) Setup:
+                   Migrate the user emails, groups, emails, and logins from on-premises Windows server to Azure Active Directory.
+
+2.	Azure Virtual Network (VNet) Setup: 
+                   Set up and configure the organization's virtual network in Azure with required subnets, IP address, Network Security Group (NSG), etc. that is similar to the on-premises infrastructure.
+
+3.	Dealer Website: 
+            Deploy the dealer application in the cloud and host it in two different data centers (Central US and South India) using Azure VMs. The application and database will be deployed in Azure VMs in two different data centers so that if any failure or unplanned event occurs, the request will be served from another location.
+
+4.	Virtual Machine: 
+            Create two Azure Windows Server 2016 Virtual Machines and deploy the dealer site in those virtual machines hosted in two different data centers. Configure required availability sets with fault domains and update domains.
+
+5.	Cloud Storage: 
+          Upload any electrical materials or handbook documents that the dealer requires to Azure and manage it so that the data will be replicated in multiple geographies during any failover/downtime. Dealers can easily use the blob URL and download the material handbook documents after following the authentication steps.
+
+6.	Load Balancing: 
+         Use Azure Load Balancers to comply with high availability and increase the availability of the application and required database. Route incoming load from various users of the website across all VMs accordingly, to avoid traffic congestion issues. Monitor the VMs where the applications are hosted and deploy the faulty VMs in case of any issues.
+
+7.	User Traffic Management:
+         Use Azure Traffic Manager to receive the dealer request first and based on the user geography, route them to the site hosted in the nearest Azure data center. This approach balances the load across two VMs.
+
+8.	Security and Connections:
+         Set up hybrid connections for the application/data to connect to an on-premises/non-cloud environment. Connect the VMs hosted in two Azure regions using VNet peering to facilitate the sharing of resources.
+
+9.	Monitoring: 
+         Use Azure Monitor or Log Analytics to monitor the dealer application and its infrastructure/resources regularly in the cloud for performance and availability of the application. Use these monitoring solutions to collect granular performance and utilization of data, activity and diagnostics logs, and notifications from hosted infrastructure in a regular manner.
+
+
+
+
