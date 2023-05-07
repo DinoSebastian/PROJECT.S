@@ -1,0 +1,71 @@
+
+
+Project Statement
+
+You are working in Highway-63 as a cloud architect. The CTO of Highway-63 has asked you to initiate a migration to the Cloud for a low-cost project. You are moving to a microservices architecture, which uses containers. Make sure you provision limited compute resources to be cost-effective. Both application and the resource should scale dynamically.
+
+Once the cluster is ready, developers should have a different environment for developing, testing, and production. The application should scale dynamically, and also, the application should be accessed via the internet.
+
+You should implement CI/CD processes. Using Jenkins, cloud builder, source code repository, container registry, and stack driver monitoring to implement all phases like code phase, build phase, and run phase. Provide a way for the cluster to scale up or down the nodes based on the load received by the pods in the existing cluster.
+
+
+Steps:
+1.Setup a GKE cluster with autoscaling enabled
+
+2.Create different namespaces for each environment
+
+3.Deploy the application using Deploy resource in GKE
+
+4.Deploy a service Resource to expose the application to public
+
+5.Install Jenkins in the cluster
+
+6.Push the application code to source code repositories
+
+7.Build the image using a cloud builder or Jenkins and push the image tothe Container registry
+
+8.Setup Cloud monitoring dashboards to monitor the pods status and other metrics
+
+
+
+SOLUTION
+
+
+The goal is to make the application scalable and cost-effective by provisioning limited compute resources. The application should be accessible via the internet and developers should have different environments for developing, testing, and production.
+
+
+Step 1: 
+Setup a GKE cluster with autoscaling enabled
+                  To begin with, you need to create a GKE cluster in the Google Cloud Platform (GCP) console. This can be done by selecting Kubernetes Engine from the GCP menu and clicking on Create Cluster. Here, you can set the parameters for your cluster, such as the number of nodes, machine types, and autoscaling options. Make sure to choose a machine type that suits the workload needs and also set the maximum and minimum number of nodes for autoscaling.
+                  
+Step 2: 
+Create different namespaces for each environment
+                  After creating the cluster, you need to create different namespaces for each environment, such as development, testing, and production. Namespaces allows you to create logical boundaries within the cluster and manage resources more effectively.
+
+Step 3:
+Deploy the application using Deploy resource in GKE
+                 Next deploy microservices-based application using the Kubernetes Deploy resource in GKE. This resource creates a Deployment object that manages a set of replicated Pods. It also supports scaling and rolling updates, which allows you to update your application without downtime.
+
+Step 4: 
+Deploy a Service Resource to expose the application to the public
+                    Once the application is deployed, you need to expose it to the public using a Kubernetes Service Resource. This resource provides a stable IP address and DNS name that other applications can use to access your application. Make sure you set the service type to Load Balancer to enable internet access.
+
+Step 5:
+Install Jenkins in the cluster
+                     To enable CI/CD processes, you need to install Jenkins in the GKE cluster. Jenkins is a popular automation server that supports continuous integration, continuous delivery, and continuous deployment. You can use the Google Cloud Marketplace to deploy Jenkins into your cluster.
+
+Step 6:
+Push the application code to source code repositories
+                      With Jenkins in place, you need to push your application code to a source code repository. This repository can be hosted on GCP or on any other cloud platform. Make sure you set up proper access controls and authentication mechanisms to secure your code
+
+Step 7:
+Build the image using a cloud builder or Jenkins and push the image to the Container registry
+                      With the code in the repository, you can use the Google Cloud Builder or Jenkins to build your application image. This image contains the application code and its dependencies, packaged as a container. Once the image is built, you can push it to the Container Registry, which is a private Docker image registry hosted on GCP.
+
+Step 8:
+Setup Cloud monitoring dashboards to monitor the pods status and other metrics
+                     Finally, you need to set up Cloud Monitoring dashboards to monitor the status of your application pods and other important metrics, such as CPU and memory usage. Cloud Monitoring provides a centralized view of your GCP resources, including your GKE cluster, and allows you to set up alerts and notifications based on predefined conditions.
+
+So, In this summary, The project involves creating a GKE cluster with autoscaling enabled, deploying a microservices-based application using Deploy and Service resources, installing Jenkins for CI/CD processes, pushing code to a source code repository, building and pushing application images to the Container Registry, and setting up Cloud Monitoring dashboards for monitoring and alerting.
+
+
