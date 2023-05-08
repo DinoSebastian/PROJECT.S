@@ -1,0 +1,75 @@
+Certification ProjectA company has planned to build and deploy two Web Applications on the Azure Platform.Their main aim is to build two Web Applications that are secured, intensively monitored and are highly available by implementing two different methodologies.The two types of Web Applications that the company wants to build are:
+
+1.A Web App built throughVisual Studio 2017 Community Edition
+
+2.A Web App built using PowerShell ARM API template
+
+Below are the set of tasks that the company wants to complete in order tosuccessfully Create, Deploy and Manage theirWeb Apps on the Azure Platform:
+
+1.Creating an ASP.NET web app and deploying it to a Windows Server 2016 based Azure VM
+
+2.Having a Web role and Worker Role published on the Azure
+
+3.Creating an Azure Table Storage under the same resource group, inserting and retrieving the data from the table
+
+4.Implementing Azure Blob and File Storage Services
+
+5.Creating Service Bus Queues to read and write messages from it followed by creating Azure Relay.
+
+6.Automating the start of the Virtual Machine through Runbooks by scheduling it to specific dates
+
+7.Scanning of the Web App and securing it by implementing Active Directory Single Sign-On
+
+8.Creating the second Web App through PowerShell ARM API template and configure CI/CD pipeline
+
+9.Monitoring the Application by using Application Insight 
+
+
+Solution 
+
+1.Creating an ASP.NET web app and deploying it to a Windows Server 2016 based Azure VM:
+	
+•	Use Visual Studio 2017 Community Edition to create an ASP.NET web app.
+•	Provision a Windows Server 2016-based Azure VM.
+•	Deploy the web app to the VM using deployment options like FTP, Visual Studio publish, or Azure DevOps pipelines.
+
+2.Web role and Worker Role published on Azure:
+
+•	Define and configure a web role and a worker role in an Azure Cloud Service project.
+•	Publish the roles to Azure using Visual Studio publish or Azure DevOps pipelines.
+
+3.Creating Azure Table Storage and data operations:
+
+•	Create an Azure Storage Account in the same resource group as your web app.
+•	Use the Azure Storage SDK or Azure Storage REST API to insert and retrieve data from the Azure Table Storage.
+
+4.Implementing Azure Blob and File Storage Services:
+
+•	Create an Azure Storage Account.
+•	Use the Azure Storage SDK or Azure Storage REST API to work with Azure Blob Storage and Azure File Storage for storing and retrieving files.
+
+5.Creating Service Bus Queues and Azure Relay:
+
+•	Create an Azure Service Bus namespace and queues for message reading and writing.
+•	Configure Azure Relay to establish secure communication between on-premises and cloud applications.
+
+6.Automating the start of Virtual Machine through Runbooks:
+
+•	Create an Azure Automation account.
+•	Write a PowerShell runbook to automate the start of the virtual machine and schedule it to run on specific dates.
+
+7.Securing the Web App with Active Directory Single Sign-On:
+
+•	Configure Azure Active Directory (AD) for single sign-on.
+•	Integrate the web app with Azure AD for authentication and authorization.
+
+8.Creating the second Web App through PowerShell ARM API template and configure CI/CD pipeline:
+
+•	Create an ARM (Azure Resource Manager) template to define the infrastructure and resources needed for the second web app.
+•	Use Azure PowerShell cmdlets or Azure CLI to deploy the ARM template and create the web app.
+•	Configure a CI/CD pipeline using Azure DevOps or any other suitable tool to automate the deployment process.
+
+9.Monitoring the Application with Application Insights:
+
+•	Enable Application Insights for your web apps to collect telemetry data.
+•	Configure monitoring, alerts, and dashboards to gain insights into the application's performance, availability, and usage.
