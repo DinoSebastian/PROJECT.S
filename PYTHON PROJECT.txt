@@ -1,0 +1,84 @@
+PROJECT 
+
+Q1: Create a python script called googlesearch that provides a command line utility to perform google search. It gives you the top links (search results) of whatever you want to  search on google.   
+
+Q2: Create a script called location that return the location parameters of any location you want.   
+
+Q3: Create a script called weather that return the environmental parameters (temperature (min, max), windspeed, humidity, cloud, pressure, sunrise and sunset) of any location you want; after passing arguments (like user api and city id
+
+SOLUTION 
+
+Q1: googlesearch.py
+
+import sys
+from googlesearch import search
+
+def google_search(query, num_results):
+    print(f"Performing Google search for: {query}")
+    results = search(query, num_results=num_results, stop=num_results)
+
+    for i, result in enumerate(results, start=1):
+        print(f"{i}. {result}")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print("Usage: python googlesearch.py <query> <num_results>")
+        sys.exit(1)
+
+    query = sys.argv[1]
+    num_results = int(sys.argv[2])
+    google_search(query, num_results)
+    
+    
+    Q2: location.py
+    
+    import sys
+import geocoder
+
+def get_location_info(location):
+    g = geocoder.arcgis(location)
+    return g.json
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python location.py <location>")
+        sys.exit(1)
+
+    location = sys.argv[1]
+    location_info = get_location_info(location)
+    print(location_info)
+
+    Q3: weather.py
+    
+    import sys
+import requests
+
+def get_weather_info(api_key, city_id):
+    url = f"http://api.openweathermap.org/data/2.5/weather?id={city_id}&appid={api_key}"
+    response = requests.get(url)
+    weather_data = response.json()
+
+    return weather_data
+
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print("Usage: python weather.py <api_key> <city_id>")
+        sys.exit(1)
+
+    api_key = sys.argv[1]
+    city_id = sys.argv[2]
+    weather_info = get_weather_info(api_key, city_id)
+    print(weather_info)
+
+Note: For Q2 and Q3, we need to have the necessary libraries installed. Can install them using pip install geocoder for Q2 and pip install requests for Q3.
+
+Replace <api_key> and <city_id> with the actual values specific to your use case.
+
+Can run each script by executing the corresponding Python file with the required arguments. For example:
+
+python googlesearch.py "python projects" 5 for Q1
+
+python location.py "New York" for Q2
+
+python weather.py <your_api_key> <your_city_id> for Q3
+
